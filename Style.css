@@ -1,2 +1,11 @@
+td {
+    background-color: rgb(129, 211, 239);
+    width: 6vw;
+    height: 8vh;
+    text-align: center;
+}
 
+.invalidMove {
+    background-color: rgb(11, 81, 142);
+}
 
