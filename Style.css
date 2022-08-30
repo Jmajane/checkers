@@ -9,3 +9,11 @@ td {
     background-color: rgb(11, 81, 142);
 }
 
+.black-piece {
+    width: 8rem;
+    height: 8rem;
+    padding: 2rem;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 16rem;
+}
