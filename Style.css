@@ -1,7 +1,7 @@
 td {
     background-color: rgb(129, 211, 239);
-    width: 6vw;
-    height: 8vh;
+    width: 65px;
+    height: 65px;
     text-align: center;
 }
 
@@ -10,21 +10,21 @@ td {
 }
 
 .black-piece {
-    width: 8rem;
-    height: 8rem;
-    padding: 2rem;
+    width: 20px;
+    height: 20px;
+    padding: 12px;
     background-color: black;
     border: 1px solid white;
-    border-radius: 16rem;
+    border-radius: 50px;
 }
 
 .red-piece {
-    width: 8rem;
-    height: 8rem;
-    padding: 2rem;
+    width: 20px;
+    height: 20px;
+    padding: 12px;
     background-color: rgb(167, 3, 255);
     border: 1px solid white;
-    border-radius: 16rem;    
+    border-radius: 50px;    
 }
 
 .king.red-piece {
