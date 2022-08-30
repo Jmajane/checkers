@@ -1,8 +1,16 @@
+* {
+    margin: auto;
+}
+
+main {
+
+}
+
 td {
+    text-align: center;
     background-color: rgb(129, 211, 239);
     width: 65px;
     height: 65px;
-    text-align: center;
 }
 
 .invalidMove {
@@ -33,4 +41,12 @@ td {
 
 .king.black-piece {
     background-color: rgb(147, 144, 144);
+}
+
+p {
+    display: inline-block;
+}
+
+span {
+    display: inline-block;
 }
