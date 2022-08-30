@@ -17,3 +17,13 @@ td {
     border: 1px solid white;
     border-radius: 16rem;
 }
+
+.red-piece {
+    width: 8rem;
+    height: 8rem;
+    padding: 2rem;
+    background-color: rgb(157, 20, 231);
+    border: 1px solid white;
+    border-radius: 16rem;    
+}
+
