@@ -22,8 +22,15 @@ td {
     width: 8rem;
     height: 8rem;
     padding: 2rem;
-    background-color: rgb(157, 20, 231);
+    background-color: rgb(167, 3, 255);
     border: 1px solid white;
     border-radius: 16rem;    
 }
 
+.king.red-piece {
+    background-color: rgb(255, 0, 242);
+}
+
+.king.black-piece {
+    background-color: rgb(147, 144, 144);
+}
