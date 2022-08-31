@@ -8,3 +8,12 @@ const board = [
     null
 ]
 
+// DOM references
+
+const cells = document.querySelectorAll("td");
+let redsPiece = document.querySelectorAll("p");
+let blacksPieces = document.querySelectorAll("span");
+const redTurnText = document.querySelectorAll(".red-turn-text");
+const blackTurnText = document.querySelectorAll(".black-turn-text");
+const divder = document.querySelectorAll("#divider")
+
