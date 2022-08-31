@@ -11,7 +11,7 @@ const board = [
 // DOM references
 
 const cells = document.querySelectorAll("td");
-let redsPiece = document.querySelectorAll("p");
+let redsPieces = document.querySelectorAll("p");
 let blacksPieces = document.querySelectorAll("span");
 const redTurnText = document.querySelectorAll(".red-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
@@ -36,4 +36,18 @@ let selectedPiece = {
     minusninthSpace: false,
     minusfourteenthSpace: false,
     minuseighteenthSpace: false,
+}
+
+
+// Initialize event listeners on pices
+function givePiecesEventListeners() {
+    if (turn) {
+        for (let i = 0; i < redsPieces.length; i++) {
+            redsPieces[i].addEventListener("click", getPlayerPieces);
+        }
+    } else {
+        for (let i = 0; i < blacksPieces.length; i++) {
+            blacksPieces[i].addEventListener("click", getPlayerPieces)
+        }
+    }
 }
