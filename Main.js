@@ -59,12 +59,18 @@ function getPlayerPieces() {
         playerPieces = blacksPieces;
     }
     removeCellonclick()
-
+    resetBorders()
 }
 
 
 function removeCellonclick() {
     for (let i = 0; i < cells.length; i++) {
         cells[i].removeAttribute("onclick");
+    }
+}
+
+function resetBorders() {
+    for (let i = 0; i < playerPieces.length; i++) {
+        playerPieces[i].style.border = "1px solid white";
     }
 }
