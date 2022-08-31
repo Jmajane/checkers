@@ -51,3 +51,13 @@ function givePiecesEventListeners() {
         }
     }
 }
+
+function getPlayerPieces() {
+    if (turn) {
+        playerPieces = redsPieces;
+    } else {
+        playerPieces = blacksPieces;
+    }
+    
+    
+}
