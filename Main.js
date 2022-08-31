@@ -73,4 +73,19 @@ function resetBorders() {
     for (let i = 0; i < playerPieces.length; i++) {
         playerPieces[i].style.border = "1px solid white";
     }
+    resetSelectedPieceProperties();
+}
+
+function resetSelectedPieceProperties() {
+    selectedPiece.pieceId = -1;
+    selectedPiece.indexofBoardPiece = -1;
+    selectedPiece.isKing = false;
+    selectedPiece.seventhSpace = false;
+    selectedPiece.ninthSpace = false;
+    selectedPiece.fourteenthSpace = false;
+    selectedPiece.eighteenthSpace = false;
+    selectedPiece.minusseventhSpace = false;
+    selectedPiece.minusninthSpace = false;
+    selectedPiece.minusfourteenthSpace = false;
+    selectedPiece.minuseighteenthSpace = false;
 }
