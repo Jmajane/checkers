@@ -58,6 +58,13 @@ function getPlayerPieces() {
     } else {
         playerPieces = blacksPieces;
     }
-    
-    
+    removeCellonclick()
+
+}
+
+
+function removeCellonclick() {
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].removeAttribute("onclick");
+    }
 }
