@@ -99,5 +99,15 @@ function resetSelectedPieceProperties() {
 function getSelectedPiece() {
     selectedPiece.pieceId = parseInt(evenet.target.id);
     selectedPiece.indexOfBoardPiece = findPiece(selectedPiece.pieceId);
+    isPieceKing();
+}
 
+// checking if piece is King
+function isPieceKing() {
+    if (document.getElementById(selectedPiece.pieceId).classList.contains("king")) {
+        selectedPiece.isKing = true;
+    } else {
+        selectedPiece.isKing = false;
+    }
+    
 }
