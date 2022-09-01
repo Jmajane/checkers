@@ -131,3 +131,13 @@ function getAvailableSpaces() {
     }
 
 }
+
+function checkAvailableJumpSpaces() {
+    if (turn) {
+        if (board[selectedPiece.indexOfBoardPiece + 14] === null
+            && cells[selectedPiece.indexOfBoardPiece + 14].classList.contains("noPieceHere") !== true
+            && board[selectedPiece.indexOfBoardPiece + 7] >= 12) {
+                selectedPiece.fourteenthSpace = true;
+            }
+    }
+}
