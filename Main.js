@@ -37,10 +37,10 @@ let selectedPiece = {
     ninthSpace: false,
     fourteenthSpace: false,
     eighteenthSpace: false,
-    minusseventhSpace: false,
-    minusninthSpace: false,
-    minusfourteenthSpace: false,
-    minuseighteenthSpace: false,
+    minusSeventhSpace: false,
+    minusNinthSpace: false,
+    minusFourteenthSpace: false,
+    minusEighteenthSpace: false,
 }
 
 
@@ -89,10 +89,10 @@ function resetSelectedPieceProperties() {
     selectedPiece.ninthSpace = false;
     selectedPiece.fourteenthSpace = false;
     selectedPiece.eighteenthSpace = false;
-    selectedPiece.minusseventhSpace = false;
-    selectedPiece.minusninthSpace = false;
-    selectedPiece.minusfourteenthSpace = false;
-    selectedPiece.minuseighteenthSpace = false;
+    selectedPiece.minusSeventhSpace = false;
+    selectedPiece.minusNinthSpace = false;
+    selectedPiece.minusFourteenthSpace = false;
+    selectedPiece.minusEighteenthSpace = false;
 }
 
 // gets ID and Index of the board cell its on 
@@ -109,12 +109,25 @@ function isPieceKing() {
     } else {
         selectedPiece.isKing = false;
     }
-
+    getAvailableSpaces();
 }
 
 function getAvailableSpaces() {
     if (board[selectedPiece.indexOfBoardPiece + 7] === null &&
         cells[selectedPiece.indexOfBoardPiece + 7].classList.contains("noPieceHere") !== true) {
             selectedPiece.seventhSpace = true;
-        }
+    }
+    if (board[selectedPiece.indexOfBoardPiece + 9] === null &&
+        cells[selectedPiece.indexOfBoardPiece + 9].classList.contains("noPieceHere") !== true) {
+            selectedPiece.ninthSpace = true;
+    }
+    if (board[selectedPiece.indexOfBoardPiece - 7] === null &&
+        cells[selectedPiece.indexOfBoardPiece - 7].classList.contains("noPieceHere") !== true) {
+            selectedPiece.minusSeventhSpace = true;
+    }
+    if (board[selectedPiece.indexOfBoardPiece - 9] === null &&
+        cells[selectedPiece.indexOfBoardPiece - 9].classList.contains("noPieceHere") !== true) {
+            selectedPiece.minusNinthSpace = true;
+    }
+
 }
