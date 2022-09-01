@@ -109,5 +109,12 @@ function isPieceKing() {
     } else {
         selectedPiece.isKing = false;
     }
-    
+
+}
+
+function getAvailableSpaces() {
+    if (board[selectedPiece.indexOfBoardPiece + 7] === null &&
+        cells[selectedPiece.indexOfBoardPiece + 7].classList.contains("noPieceHere") !== true) {
+            selectedPiece.seventhSpace = true;
+        }
 }
