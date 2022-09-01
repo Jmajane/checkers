@@ -17,9 +17,10 @@ const redTurnText = document.querySelectorAll(".red-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
 const divder = document.querySelectorAll("#divider")
 
-
-
-
+let findPiece = function(pieceId) {
+    let parsed = parseInt(pieceId);
+    return board.indexOf(parsed);
+}
 
 // Player Properties
 
