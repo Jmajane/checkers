@@ -17,6 +17,10 @@ const redTurnText = document.querySelectorAll(".red-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
 const divder = document.querySelectorAll("#divider")
 
+
+
+
+
 // Player Properties
 
 let turn = true;
@@ -26,7 +30,7 @@ let playerPieces;
 
 let selectedPiece = {
     pieceId: -1,
-    indexofBoardPiece: -1,
+    indexOfBoardPiece: -1,
     isKing: false,
     seventhSpace: false,
     ninthSpace: false,
@@ -78,7 +82,7 @@ function resetBorders() {
 
 function resetSelectedPieceProperties() {
     selectedPiece.pieceId = -1;
-    selectedPiece.indexofBoardPiece = -1;
+    selectedPiece.indexOfBoardPiece = -1;
     selectedPiece.isKing = false;
     selectedPiece.seventhSpace = false;
     selectedPiece.ninthSpace = false;
@@ -88,4 +92,11 @@ function resetSelectedPieceProperties() {
     selectedPiece.minusninthSpace = false;
     selectedPiece.minusfourteenthSpace = false;
     selectedPiece.minuseighteenthSpace = false;
+}
+
+// gets ID and Index of the board cell its on 
+function getSelectedPiece() {
+    selectedPiece.pieceId = parseInt(evenet.target.id);
+    selectedPiece.indexOfBoardPiece = findPiece(selectedPiece.pieceId);
+
 }
