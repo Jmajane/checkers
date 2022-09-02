@@ -212,5 +212,13 @@ function giveCellsClick() {
     if (selectedPiece.seventhSpace) {
         cells[selectedPiece.indexOfBoardPiece + 7].setAttribute("onclick", "makeMove(7");
     }
-    
+    if (selectedPiece.ninthSpace) {
+        cells[selectedPiece.indexOfBoardPiece + 9].setAttribute("onclick", "makeMove(7");
+    }
+    if (selectedPiece.fourteenthSpace) {
+        cells[selectedPiece.indexOfBoardPiece + 14].setAttribute("onclick", "makeMove(7");
+    }
+    if (selectedPiece.eighteenthSpace) {
+        cells[selectedPiece.indexOfBoardPiece + 18].setAttribute("onclick", "makeMove(7");
+    }
 }
