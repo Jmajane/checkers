@@ -271,4 +271,7 @@ function changeData(indexOfBoardPiece, modifiedIndex, removePiece) {
     if (turn && selectedPiece.pieceId < 12 && modifiedIndex >= 57) {
         document.getElementById(selectedPiece.pieceId).classList.add("king")
     }
+    if (turn && selectedPiece.pieceId >= 12 && modifiedIndex <= 7) {
+        document.getElementById(selectedPiece.pieceId).classList.add("king")
+    }
 }
