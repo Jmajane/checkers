@@ -285,5 +285,7 @@ function changeData(indexOfBoardPiece, modifiedIndex, removePiece) {
             redScore--
         }
     }
-    
+    resetSelectedPieceProperties();
+    removeCellonclick();
+    removeEventListeners();
 }
