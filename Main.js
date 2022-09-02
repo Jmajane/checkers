@@ -234,3 +234,17 @@ function giveCellsClick() {
         cells[selectedPiece.indexOfBoardPiece - 18].setAttribute("onclick", "makeMove(-18)");
     }
 }
+
+function makeMove(number) {
+    document.getElementById(selectedPiece.pieceId).remove();
+    cells[selectedPiece.indexOfBoardPiece].innerHTML = "";
+    if (turn) {
+        if (selectedPiece.isKing) {
+            cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<p class="red-piece king" id="${selectedPiece.pieceId}"></p>`; 
+            redsPieces = document.querySelectorAll("p");
+        } else {
+            cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<p class="red-piece" id="${selectedPiece.pieceId}"></p>`; 
+            redsPieces = document.querySelectorAll("p");
+        }
+    }
+}
