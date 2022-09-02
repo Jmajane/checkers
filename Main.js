@@ -197,3 +197,13 @@ function checkPieceConditions() {
         givePieceBorder();
     }
 }
+
+function givePieceBorder() {
+    if (selectedPiece.seventhSpace || selectedPiece.ninthSpace || selectedPiece.fourteenthSpace || selectedPiece.eighteenthSpace
+        || selectedPiece.minusSeventhSpace || selectedPiece.minusNinthSpace || selectedPiece.minusFourteenthSpace || selectedPiece.eighteenthSpace) {
+            document.getElementById(selectedPiece.pieceId).style.border = "3px solid green";
+            giveCellsClick()
+        } else {
+            return;
+        }
+}
