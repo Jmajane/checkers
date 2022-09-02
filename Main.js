@@ -256,4 +256,19 @@ function makeMove(number) {
         }
     }
     
+    let indexOfPiece = selectedPiece.indexOfBoardPiece
+    if (number === 14 || number === -14 || number === 18 || number === -18) {
+        changeData(indexOfPiece, indexOfPiece + number, index + number / 2);
+    } else {
+        changeData(indexOfPiece, indexOfPiece + number);
+    }
+}
+
+// changes the board states data on the back end
+function changeData(indexOfBoardPiece, modifiedIndex, removePiece) {
+    board[indexOfBoardPiece] = null;
+    board[modifiedIndex] = parseInt(selectedPiece.pieceId);
+    if (turn && selectedPiece.pieceId < 12 && modifiedIndex >= 57) {
+        document.getElementById(selectedPiece.pieceId).classList.add("king")
+    }
 }
