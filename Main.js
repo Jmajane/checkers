@@ -177,3 +177,11 @@ function checkAvailableJumpSpaces() {
             }   
     }
 }
+
+// resricts movement if the piece is a king
+function checkPieceConditions() {
+    if (selectedPiece.isKing) {
+        givePieceBorder();
+        
+    }
+}
