@@ -207,3 +207,10 @@ function givePieceBorder() {
             return;
         }
 }
+
+function giveCellsClick() {
+    if (selectedPiece.seventhSpace) {
+        cells[selectedPiece.indexOfBoardPiece + 7].setAttribute("onclick", "makeMove(7");
+    }
+    
+}
