@@ -210,15 +210,27 @@ function givePieceBorder() {
 
 function giveCellsClick() {
     if (selectedPiece.seventhSpace) {
-        cells[selectedPiece.indexOfBoardPiece + 7].setAttribute("onclick", "makeMove(7");
+        cells[selectedPiece.indexOfBoardPiece + 7].setAttribute("onclick", "makeMove(7)");
     }
     if (selectedPiece.ninthSpace) {
-        cells[selectedPiece.indexOfBoardPiece + 9].setAttribute("onclick", "makeMove(7");
+        cells[selectedPiece.indexOfBoardPiece + 9].setAttribute("onclick", "makeMove(9)");
     }
     if (selectedPiece.fourteenthSpace) {
-        cells[selectedPiece.indexOfBoardPiece + 14].setAttribute("onclick", "makeMove(7");
+        cells[selectedPiece.indexOfBoardPiece + 14].setAttribute("onclick", "makeMove(14)");
     }
     if (selectedPiece.eighteenthSpace) {
-        cells[selectedPiece.indexOfBoardPiece + 18].setAttribute("onclick", "makeMove(7");
+        cells[selectedPiece.indexOfBoardPiece + 18].setAttribute("onclick", "makeMove(18)");
+    }
+    if (selectedPiece.minusSeventhSpace) {
+        cells[selectedPiece.indexOfBoardPiece - 7].setAttribute("onclick", "makeMove(-7)");
+    }
+    if (selectedPiece.minusNinthSpace) {
+        cells[selectedPiece.indexOfBoardPiece - 9].setAttribute("onclick", "makeMove(-9)");
+    }
+    if (selectedPiece.minusFourteenthSpace) {
+        cells[selectedPiece.indexOfBoardPiece - 14].setAttribute("onclick", "makeMove(-14)");
+    }
+    if (selectedPiece.minusEighteenthSpace) {
+        cells[selectedPiece.indexOfBoardPiece - 18].setAttribute("onclick", "makeMove(-18)");
     }
 }
