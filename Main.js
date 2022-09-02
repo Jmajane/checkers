@@ -246,5 +246,14 @@ function makeMove(number) {
             cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<p class="red-piece" id="${selectedPiece.pieceId}"></p>`; 
             redsPieces = document.querySelectorAll("p");
         }
+    } else {
+        if (selectedPiece.isKing) {
+            cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<spam class="black-piece king" id="${selectedPiece.pieceId}"></span>`; 
+            blacksPieces = document.querySelectorAll("span");
+        } else {
+            cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<span class="black-piece" id="${selectedPiece.pieceId}"></span>`; 
+            blacksPieces = document.querySelectorAll("span");
+        }
     }
+    
 }
