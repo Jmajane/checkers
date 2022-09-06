@@ -311,5 +311,11 @@ function checkForWin() {
             blackTurnText[i].style.display = "none";
             redTurnText[i].textContent = "RED WINS!";
         }
+    } else if (redScore === 0) {
+        divider.style.display = "none";
+        for (let i = 0; i < blackTurnText.length; i++) {
+            blackTurnText[i].style.color = "black";
+            redTurnText[i].style.display = "none";
+            blackTurnText[i].textContent = "BLACK WINS!";
     }
 }
