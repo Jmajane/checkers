@@ -329,5 +329,12 @@ function changePlayer() {
             redTurnText[i].style.color = "lightGrey";
             blackTurnText[i].style.color = "black";
         }
+    } else {
+        turn = true;
+        for (let i = 0; i < blackTurnText.length; i++) {
+            blackTurnText[i].style.color = "lightGrey";
+            redTurnText[i].style.color = "black";
+        }
     }
+    
 }
