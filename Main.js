@@ -202,7 +202,7 @@ function checkPieceConditions() {
 
 function givePieceBorder() {
     if (selectedPiece.seventhSpace || selectedPiece.ninthSpace || selectedPiece.fourteenthSpace || selectedPiece.eighteenthSpace
-        || selectedPiece.minusSeventhSpace || selectedPiece.minusNinthSpace || selectedPiece.minusFourteenthSpace || selectedPiece.eighteenthSpace) {
+        || selectedPiece.minusSeventhSpace || selectedPiece.minusNinthSpace || selectedPiece.minusFourteenthSpace || selectedPiece.minusEighteenthSpace) {
             document.getElementById(selectedPiece.pieceId).style.border = "3px solid green";
             giveCellsClick()
         } else {
@@ -250,7 +250,7 @@ function makeMove(number) {
         }
     } else {
         if (selectedPiece.isKing) {
-            cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<spam class="black-piece king" id="${selectedPiece.pieceId}"></span>`; 
+            cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<span class="black-piece king" id="${selectedPiece.pieceId}"></span>`; 
             blacksPieces = document.querySelectorAll("span");
         } else {
             cells[selectedPiece.indexOfBoardPiece + number].innerHTML = `<span class="black-piece" id="${selectedPiece.pieceId}"></span>`; 
@@ -266,6 +266,7 @@ function makeMove(number) {
     }
 }
 
+
 // changes the board states data on the back end
 function changeData(indexOfBoardPiece, modifiedIndex, removePiece) {
     board[indexOfBoardPiece] = null;
@@ -273,7 +274,7 @@ function changeData(indexOfBoardPiece, modifiedIndex, removePiece) {
     if (turn && selectedPiece.pieceId < 12 && modifiedIndex >= 57) {
         document.getElementById(selectedPiece.pieceId).classList.add("king")
     }
-    if (turn && selectedPiece.pieceId >= 12 && modifiedIndex <= 7) {
+    if (turn === false && selectedPiece.pieceId >= 12 && modifiedIndex <= 7) {
         document.getElementById(selectedPiece.pieceId).classList.add("king")
     }
     if (removePiece) {
@@ -287,6 +288,7 @@ function changeData(indexOfBoardPiece, modifiedIndex, removePiece) {
             redScore--
         }
     }
+
     resetSelectedPieceProperties();
     removeCellonclick();
     removeEventListeners();
@@ -301,8 +303,8 @@ function removeEventListeners() {
         for (let i = 0; i < blacksPieces.length; i++) {
             blacksPieces[i].removeEventListener("click", getPlayerPieces);
         }
-        checkForWin()
     }
+    checkForWin()
 }
 
 function checkForWin() {
