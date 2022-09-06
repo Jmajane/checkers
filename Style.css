@@ -32,7 +32,7 @@ td {
     height: 65px;
 }
 
-.invalidMove {
+.noPieceHere {
     background-color: rgb(11, 81, 142);
 }
 

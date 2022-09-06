@@ -1,15 +1,22 @@
 /*-----   Game State Data   -----*/
 
 const board = [
-    null, 0, null, 1, null, 2, null, 3, null, 4, null, 5,
-    null, 6, null, 7, null, 8, null, 9, null, 10, null, 11,
-    null, 12, null, 13, null, 14, null, 15, null, 16, null, 17,
-    null, 18, null, 19, null, 20, null, 21, null, 22, null, 23,
-    null
+    null, 0, null, 1, null, 2, null, 3,
+    4, null, 5, null, 6, null, 7, null,
+    null, 8, null, 9, null, 10, null, 11,
+    null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null,
+    12, null, 13, null, 14, null, 15, null,
+    null, 16, null, 17, null, 18, null, 19,
+    20, null, 21, null, 22, null, 23, null
 ]
 
-// DOM references
+let findPiece = function (pieceId) {
+    let parsed = parseInt(pieceId);
+    return board.indexOf(parsed);
+}
 
+// DOM references
 const cells = document.querySelectorAll("td");
 let redsPieces = document.querySelectorAll("p");
 let blacksPieces = document.querySelectorAll("span");
@@ -17,10 +24,6 @@ const redTurnText = document.querySelectorAll(".red-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
 const divider = document.querySelectorAll("#divider")
 
-let findPiece = function(pieceId) {
-    let parsed = parseInt(pieceId);
-    return board.indexOf(parsed);
-}
 
 // Player Properties
 
@@ -84,7 +87,7 @@ function resetBorders() {
 
 function resetSelectedPieceProperties() {
     selectedPiece.pieceId = -1;
-    selectedPiece.indexOfBoardPiece = -1;
+    selectedPiece.pieceId = -1;
     selectedPiece.isKing = false;
     selectedPiece.seventhSpace = false;
     selectedPiece.ninthSpace = false;
@@ -115,67 +118,67 @@ function isPieceKing() {
 
 function getAvailableSpaces() {
     if (board[selectedPiece.indexOfBoardPiece + 7] === null &&
-        cells[selectedPiece.indexOfBoardPiece + 7].classList.contains("invalidMove") !== true) {
-            selectedPiece.seventhSpace = true;
+        cells[selectedPiece.indexOfBoardPiece + 7].classList.contains("noPieceHere") !== true) {
+        selectedPiece.seventhSpace = true;
     }
     if (board[selectedPiece.indexOfBoardPiece + 9] === null &&
-        cells[selectedPiece.indexOfBoardPiece + 9].classList.contains("invalidMove") !== true) {
-            selectedPiece.ninthSpace = true;
+        cells[selectedPiece.indexOfBoardPiece + 9].classList.contains("noPieceHere") !== true) {
+        selectedPiece.ninthSpace = true;
     }
     if (board[selectedPiece.indexOfBoardPiece - 7] === null &&
-        cells[selectedPiece.indexOfBoardPiece - 7].classList.contains("invalidMove") !== true) {
-            selectedPiece.minusSeventhSpace = true;
+        cells[selectedPiece.indexOfBoardPiece - 7].classList.contains("noPieceHere") !== true) {
+        selectedPiece.minusSeventhSpace = true;
     }
     if (board[selectedPiece.indexOfBoardPiece - 9] === null &&
-        cells[selectedPiece.indexOfBoardPiece - 9].classList.contains("invalidMove") !== true) {
-            selectedPiece.minusNinthSpace = true;
+        cells[selectedPiece.indexOfBoardPiece - 9].classList.contains("noPieceHere") !== true) {
+        selectedPiece.minusNinthSpace = true;
     }
     checkAvailableJumpSpaces();
 }
 
 function checkAvailableJumpSpaces() {
     if (turn) {
-        if (board[selectedPiece.indexOfBoardPiece + 14] === null
-            && cells[selectedPiece.indexOfBoardPiece + 14].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece + 7] >= 12) {
-                selectedPiece.fourteenthSpace = true;
-            }
-        if (board[selectedPiece.indexOfBoardPiece + 18] === null
-            && cells[selectedPiece.indexOfBoardPiece + 18].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece + 9] >= 12) {
-                selectedPiece.eighteenthSpace = true;
-            }
-        if (board[selectedPiece.indexOfBoardPiece - 14] === null
-            && cells[selectedPiece.indexOfBoardPiece - 14].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece - 7] >= 12) {
-                selectedPiece.minusFourteenthSpace = true;
-            }
-        if (board[selectedPiece.indexOfBoardPiece - 18] === null
-            && cells[selectedPiece.indexOfBoardPiece - 18].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece - 9] >= 12) {
-                selectedPiece.minusEighteenthSpace = true;
-            }
+        if (board[selectedPiece.indexOfBoardPiece + 14] === null 
+        && cells[selectedPiece.indexOfBoardPiece + 14].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece + 7] >= 12) {
+            selectedPiece.fourteenthSpace = true;
+        }
+        if (board[selectedPiece.indexOfBoardPiece + 18] === null 
+        && cells[selectedPiece.indexOfBoardPiece + 18].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece + 9] >= 12) {
+            selectedPiece.eighteenthSpace = true;
+        }
+        if (board[selectedPiece.indexOfBoardPiece - 14] === null 
+        && cells[selectedPiece.indexOfBoardPiece - 14].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece - 7] >= 12) {
+            selectedPiece.minusFourteenthSpace = true;
+        }
+        if (board[selectedPiece.indexOfBoardPiece - 18] === null 
+        && cells[selectedPiece.indexOfBoardPiece - 18].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece - 9] >= 12) {
+            selectedPiece.minusEighteenthSpace = true;
+        }
     } else {
-        if (board[selectedPiece.indexOfBoardPiece + 14] === null
-            && cells[selectedPiece.indexOfBoardPiece + 14].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece + 7] < 12 && board[selectedPiece.indexOfBoardPiece + 7] !== null) {
-                selectedPiece.fourteenthSpace = true;
-            }
-        if (board[selectedPiece.indexOfBoardPiece + 18] === null
-            && cells[selectedPiece.indexOfBoardPiece + 18].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece + 9] < 12 && board[selectedPiece.indexOfBoardPiece + 9] !== null) {
-                selectedPiece.eighteenthSpace = true;
-            }
-        if (board[selectedPiece.indexOfBoardPiece - 14] === null && cells[selectedPiece.indexOfBoardPiece - 14].classList.contains("invalidMove") !== true
-            && cells[selectedPiece.indexOfBoardPiece - 7] < 12
-            && board[selectedPiece.indexOfBoardPiece - 7] !== null) {
-                selectedPiece.minusFourteenthSpace = true;
-            }
-        if (board[selectedPiece.indexOfBoardPiece - 18] === null && cells[selectedPiece.indexOfBoardPiece - 18].classList.contains("invalidMove") !== true
-            && cells[selectedPiece.indexOfBoardPiece - 9] < 12
-            && board[selectedPiece.indexOfBoardPiece - 9] !== null) {
-                selectedPiece.minusEighteenthSpace = true;
-            }   
+        if (board[selectedPiece.indexOfBoardPiece + 14] === null 
+        && cells[selectedPiece.indexOfBoardPiece + 14].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece + 7] < 12 && board[selectedPiece.indexOfBoardPiece + 7] !== null) {
+            selectedPiece.fourteenthSpace = true;
+        }
+        if (board[selectedPiece.indexOfBoardPiece + 18] === null 
+        && cells[selectedPiece.indexOfBoardPiece + 18].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece + 9] < 12 && board[selectedPiece.indexOfBoardPiece + 9] !== null) {
+            selectedPiece.eighteenthSpace = true;
+        }
+        if (board[selectedPiece.indexOfBoardPiece - 14] === null && cells[selectedPiece.indexOfBoardPiece - 14].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece - 7] < 12 
+        && board[selectedPiece.indexOfBoardPiece - 7] !== null) {
+            selectedPiece.minusFourteenthSpace = true;
+        }
+        if (board[selectedPiece.indexOfBoardPiece - 18] === null && cells[selectedPiece.indexOfBoardPiece - 18].classList.contains("noPieceHere") !== true
+        && board[selectedPiece.indexOfBoardPiece - 9] < 12
+        && board[selectedPiece.indexOfBoardPiece - 9] !== null) {
+            selectedPiece.minusEighteenthSpace = true;
+        }
     }
     checkPieceConditions();
 }
@@ -260,7 +263,7 @@ function makeMove(number) {
     
     let indexOfPiece = selectedPiece.indexOfBoardPiece
     if (number === 14 || number === -14 || number === 18 || number === -18) {
-        changeData(indexOfPiece, indexOfPiece + number, index + number / 2);
+        changeData(indexOfPiece, indexOfPiece + number, indexOfPiece + number / 2);
     } else {
         changeData(indexOfPiece, indexOfPiece + number);
     }
