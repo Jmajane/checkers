@@ -79,6 +79,7 @@ function resetBorders() {
         playerPieces[i].style.border = "1px solid white";
     }
     resetSelectedPieceProperties();
+    getSelectedPiece()
 }
 
 function resetSelectedPieceProperties() {
@@ -97,7 +98,7 @@ function resetSelectedPieceProperties() {
 
 // gets ID and Index of the board cell its on 
 function getSelectedPiece() {
-    selectedPiece.pieceId = parseInt(evenet.target.id);
+    selectedPiece.pieceId = parseInt(event.target.id);
     selectedPiece.indexOfBoardPiece = findPiece(selectedPiece.pieceId);
     isPieceKing();
 }
@@ -165,17 +166,18 @@ function checkAvailableJumpSpaces() {
             && board[selectedPiece.indexOfBoardPiece + 9] < 12 && board[selectedPiece.indexOfBoardPiece + 9] !== null) {
                 selectedPiece.eighteenthSpace = true;
             }
-        if (board[selectedPiece.indexOfBoardPiece - 14] === null
-            && cells[selectedPiece.indexOfBoardPiece - 14].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece - 7] < 12 && board[selectedPiece.indexOfBoardPiece - 14] !== null) {
+        if (board[selectedPiece.indexOfBoardPiece - 14] === null && cells[selectedPiece.indexOfBoardPiece - 14].classList.contains("invalidMove") !== true
+            && cells[selectedPiece.indexOfBoardPiece - 7] < 12
+            && board[selectedPiece.indexOfBoardPiece - 7] !== null) {
                 selectedPiece.minusFourteenthSpace = true;
             }
-        if (board[selectedPiece.indexOfBoardPiece - 18] === null
-            && cells[selectedPiece.indexOfBoardPiece - 18].classList.contains("invalidMove") !== true
-            && board[selectedPiece.indexOfBoardPiece - 9] < 12 && board[selectedPiece.indexOfBoardPiece - 18] !== null) {
+        if (board[selectedPiece.indexOfBoardPiece - 18] === null && cells[selectedPiece.indexOfBoardPiece - 18].classList.contains("invalidMove") !== true
+            && cells[selectedPiece.indexOfBoardPiece - 9] < 12
+            && board[selectedPiece.indexOfBoardPiece - 9] !== null) {
                 selectedPiece.minusEighteenthSpace = true;
             }   
     }
+    checkPieceConditions();
 }
 
 // resricts movement if the piece is a king
