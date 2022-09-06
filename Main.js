@@ -15,7 +15,7 @@ let redsPieces = document.querySelectorAll("p");
 let blacksPieces = document.querySelectorAll("span");
 const redTurnText = document.querySelectorAll(".red-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
-const divder = document.querySelectorAll("#divider")
+const divider = document.querySelectorAll("#divider")
 
 let findPiece = function(pieceId) {
     let parsed = parseInt(pieceId);
@@ -300,5 +300,16 @@ function removeEventListeners() {
             blacksPieces[i].removeEventListener("click", getPlayerPieces);
         }
         checkForWin()
+    }
+}
+
+function checkForWin() {
+    if (blackScore === 0) {
+        divider.style.display = "none";
+        for (let i = 0; i < redTurnText.length; i++) {
+            redTurnText[i].style.color = "black";
+            blackTurnText[i].style.display = "none";
+            redTurnText[i].textContent = "RED WINS!";
+        }
     }
 }
