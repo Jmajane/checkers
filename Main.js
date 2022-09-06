@@ -317,5 +317,17 @@ function checkForWin() {
             blackTurnText[i].style.color = "black";
             redTurnText[i].style.display = "none";
             blackTurnText[i].textContent = "BLACK WINS!";
+        }
+    }
+    changePlayer()
+}
+
+function changePlayer() {
+    if (turn) {
+        turn = false;
+        for (let i = 0; i < redTurnText.length; i++) {
+            redTurnText[i].style.color = "lightGrey";
+            blackTurnText[i].style.color = "black";
+        }
     }
 }
