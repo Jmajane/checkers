@@ -289,3 +289,16 @@ function changeData(indexOfBoardPiece, modifiedIndex, removePiece) {
     removeCellonclick();
     removeEventListeners();
 }
+
+function removeEventListeners() {
+    if (turn) {
+        for (let i = 0; i < redsPieces.length; i++) {
+            redsPieces[i].removeEventListener("click", getPlayerPieces);
+        }
+    } else {
+        for (let i = 0; i < blacksPieces.length; i++) {
+            blacksPieces[i].removeEventListener("click", getPlayerPieces);
+        }
+        checkForWin()
+    }
+}
